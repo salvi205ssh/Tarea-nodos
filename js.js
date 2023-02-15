@@ -27,6 +27,8 @@ btn_todo.addEventListener("click", () => {
   }
 });
 
+/* No he sabido moverlo a los lados*/
+
 mobe_right = document.getElementById("mobe_right");
 
 if (mobe_right != null) {
