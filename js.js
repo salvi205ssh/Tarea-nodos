@@ -20,16 +20,25 @@ if ("content" in document.createElement("template")) {
       const template = document.querySelector("#template");
 
       // Clona el contenido del elemento "template"
-      const clone = template.content.cloneNode(true);
+      const clone = template.cloneNode(true);
 
-      // Selecciona los elementos "td" de la fila clonada
-      let td = clone.querySelectorAll("td");
+      clone.style.display = "block";
 
-      // Asigna el valor de "nombre" y "horas_estimadas" al primer "td" de la fila clonada
-      td[0].textContent = nombre + "-" + horas_estimadas;
-      td[0].innerHTML +=
-        "<br><button type='button' id='btn_right' onclick='deletenode()'>X</button>" +
-        "<button type='button' id='btn_delete' onclick='mover()'>=></button>";
+      clone.getElementsByTagName("span")[0].textContent =
+        nombre + "-" + horas_estimadas;
+
+      clone.getElementsByTagName("button")[0].addEventListener("click", () => {
+        console.log("moviendo iizq!");
+      });
+
+      clone.getElementsByTagName("button")[1].addEventListener("click", () => {
+        console.log("borrando!");
+        deletenode();
+      });
+
+      clone.getElementsByTagName("button")[2].addEventListener("click", () => {
+        console.log("moviendo derch!");
+      });
 
       // Agrega la fila clonada a la tabla
       tbody.appendChild(clone);
@@ -44,13 +53,12 @@ function mover() {
   console.log("moviendo");
 }
 
+/* hay que hacer click dos veces para que borre */
 function deletenode() {
-  console.log("borrando");
+  const tbody = document.querySelector("tbody");
 
   // Selecciona el contenido del elemento "template"
   const template = document.querySelector("#template");
 
   template.remove();
-
-  console.log(template);
 }
