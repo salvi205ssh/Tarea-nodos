@@ -1,0 +1,22 @@
+#TableTodo{
+    width: 30rem;
+    background-color: grey;
+    border-collapse: collapse;
+
+}
+
+.botones{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 30rem;
+    margin-bottom: 0;
+    margin-top: 2rem;
+    background-color: red;
+
+}
+
+#TableTodo tr > td{
+    text-align: center;
+    background-color: white;
+}
