@@ -10,10 +10,16 @@
   <body>
     <div class="container">
       <label for="nombre">Nombre</label>
-      <input type="text" id="nombre" name="nombre" placeholder="nombre" />
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        value="salva"
+        placeholder="nombre"
+      />
       <br />
       <label for="horas_estimadas">Horas estimadas</label>
-      <input type="number" id="horas_estimadas" />
+      <input type="number" id="horas_estimadas" value="8" />
 
       <div class="botones">
         <button id="btn_todo">add</button>
@@ -28,9 +34,17 @@
           <th>TO BE TESTER</th>
           <th>DONE</th>
         </tr>
+
+        <template id="template">
+          <tr>
+            <td class="record"></td>
+            <td></td>
+          </tr>
+        </template>
+
       </table>
     </div>
 
-    <script src="js.js"></script>
+    <script src="js.js" defer></script>
   </body>
 </html>

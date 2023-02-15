@@ -1,35 +1,31 @@
 console.log("Funcionando!");
 
 var btn_todo = document.getElementById("btn_todo");
-var mobe_right = null;
+const tareas = [];
 
-btn_todo.addEventListener("click", () => {
-  var nombre = document.getElementById("nombre").value;
-  var horas_estimadas = document.getElementById("horas_estimadas").value;
+if ("content" in document.createElement("template")) {
 
-  if (nombre != "") {
-    var fila =
-      "<tr><td>" +
-      nombre +
-      "-" +
-      horas_estimadas +
-      "<br>" +
-      "  <button id='mobe_right'> X </button>" +
-      "  <button id='delete'> => </button>" +
-      "</td></tr>";
+  btn_todo.addEventListener("click", () => {
+    var nombre = document.getElementById("nombre").value;
+    var horas_estimadas = document.getElementById("horas_estimadas").value;
 
-    var celda = document.createElement("TR");
-    celda.innerHTML = fila;
+    if (nombre != "") {
+      const tbody = document.querySelector("tbody");
+      const template = document.querySelector("#template");
 
-    document.getElementById("TableTodo").appendChild(celda);
-  } else {
-    alert("Debe ingresar un nombre");
-  }
-});
+      const clone = template.content.cloneNode(true);
+      let td = clone.querySelectorAll("td");
 
-/* No he sabido moverlo a los lados*/
+      td[0].textContent = nombre + "-" + horas_estimadas;
+      tbody.appendChild(clone);
+    } else {
+      alert("Debe ingresar un nombre y un numero de horas estimadas");
+    }
+  });
+}
 
-mobe_right = document.getElementById("mobe_right");
+
+/* mobe_right = document.getElementById("mobe_right");
 
 if (mobe_right != null) {
   mobe_right.addEventListener("click", () => {
@@ -38,3 +34,4 @@ if (mobe_right != null) {
 } else {
   console.log("No hay mobe");
 }
+ */

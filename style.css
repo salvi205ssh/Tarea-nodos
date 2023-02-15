@@ -1,6 +1,5 @@
 #TableTodo{
     width: 30rem;
-    background-color: grey;
     border-collapse: collapse;
 
 }
@@ -16,7 +15,12 @@
 
 }
 
+
 #TableTodo tr > td{
     text-align: center;
     background-color: white;
+}
+
+#template{
+    display: none;
 }
